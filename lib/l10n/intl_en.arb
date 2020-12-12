@@ -1,0 +1,6 @@
+{
+  "@@locale": "en",
+  "title": "Weather Search",
+  "cityName": "Enter a city",
+  "weatherError": "Couldn't fetch weather. Is the device online?"
+}

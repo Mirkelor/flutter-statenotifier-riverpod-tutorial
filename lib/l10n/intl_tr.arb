@@ -1,0 +1,6 @@
+{
+  "@@locale": "tr",
+  "title": "Hava Durumu Arama",
+  "cityName": "Şehir giriniz",
+  "weatherError": "Hava durumu alınamadı. Cihazınız internete bağlı mı?"
+}

@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/all.dart';
+import 'package:riverpod_statenotifier_tutorial/generated/l10n.dart';
 
 import '../infrastructure/model/weather.dart';
 import '../infrastructure/weather_repository.dart';
@@ -56,7 +57,7 @@ class WeatherNotifier extends StateNotifier {
       final weather = await _weatherRepository.fetchWeather(cityName);
       state = WeatherLoaded(weather);
     } on NetworkException {
-      state = WeatherError("Couldn't fetch weather. Is the device online?");
+      state = WeatherError(S.current.weatherError);
     }
   }
 }

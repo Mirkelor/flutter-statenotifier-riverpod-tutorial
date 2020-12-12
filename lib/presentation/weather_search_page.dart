@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/all.dart';
 import 'package:riverpod_statenotifier_tutorial/application/weather_notifier.dart';
+import 'package:riverpod_statenotifier_tutorial/generated/l10n.dart';
 import 'package:riverpod_statenotifier_tutorial/providers.dart';
 
 import '../infrastructure/model/weather.dart';
@@ -12,10 +13,17 @@ class WeatherSearchPage extends StatefulWidget {
 
 class _WeatherSearchPageState extends State<WeatherSearchPage> {
   @override
+  void initState() {
+    // Current locale can be changed programmatically using S.load method and passing the locale
+    // S.load(Locale('tr'));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Weather Search"),
+        title: Text(S.of(context).title),
       ),
       body: Container(
         padding: EdgeInsets.symmetric(vertical: 16),
@@ -93,7 +101,7 @@ class CityInputField extends StatelessWidget {
         onSubmitted: (value) => submitCityName(context, value),
         textInputAction: TextInputAction.search,
         decoration: InputDecoration(
-          hintText: "Enter a city",
+          hintText: S.of(context).cityName,
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
           suffixIcon: Icon(Icons.search),
         ),
